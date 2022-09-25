@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WeatherApp</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://kit.fontawesome.com/5ebd870a2b.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <form id="city-form">
+        <input type="text" placeholder="Enter your city" id="city-input" />
+        <input type="submit" value="submit" />
+      </form>
+      <div class="row">
+        <div class="col">
+          <h1 id="city">Kyiv</h1>
+          <br />
+          <h2 id="data">8 august</h2>
+          <br />
+          <h3 id="time">16:15</h3>
+        </div>
+        <div class="col"><span id="temp">23</span>*C</div>
+        <div class="col">Sun <i class="fa-solid fa-sun sun-icon"></i></div>
+      </div>
+      <div class="humidity">
+        Humidity <span id="humid">75</span> %
+        <i class="fa-solid fa-raindrops drops-icon"></i>
+      </div>
+      <div class="wind">
+        Wind <span id="windValue">4</span> km\h NW
+        <i class="fa-regular fa-down-right wind-icon"></i>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="sun">
+            sunrise 5:35 <i class="fa-solid fa-sunrise"></i>
+            <br />
+            sunset 20:31 <i class="fa-solid fa-sunset"></i>
+          </div>
+        </div>
+        <div class="col">
+          <div class="moom">
+            Moon day <i class="fa-solid fa-moon moon-icon"></i>
+            <br />
+            11
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">Tu 24*C <i class="fa-solid fa-cloud-sun"></i></div>
+        <div class="col">
+          Wn 23*C <i class="fa-duotone fa-cloud-sun cloud-icon"></i>
+        </div>
+        <div class="col">Th 27*C <i class="fa-solid fa-sun sun-icon"></i></div>
+        <div class="col">Fr 28*C <i class="fa-solid fa-sun sun-icon"></i></div>
+        <div class="col">St 28*C <i class="fa-solid fa-sun sun-icon"></i></div>
+      </div>
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>
