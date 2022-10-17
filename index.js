@@ -41,8 +41,7 @@ function displayForecast(response) {
     if (index < 6) {
       forecastHTML =
         forecastHTML +
-        `
-            
+        `          
               <div class="col-2">
                 <div class="weather-forecast-date">${formatDay(
                   forecastDay.dt
@@ -127,12 +126,13 @@ function showTemperature(response) {
   iconElement.setAttribute("alt", response.data.weather[0].description);
   riseElement.innerHTML = formatSun(response.data.sys.sunrise * 1000);
   setElement.innerHTML = formatSun(response.data.sys.sunset * 1000);
-
-  let dur = response.data.sys.sunset - response.data.sys.sunrise;
-  let sunDay = Math.trunc(dur / 3600);
-  let minSunDur = Math.trunc((dur - 36000) / 60);
-
-  durationElement.innerHTML = `${sunDay}:${minSunDur}`;
+  function showDuration() {
+    let dur = response.data.sys.sunset - response.data.sys.sunrise;
+    let sunDay = Math.trunc(dur / 3600);
+    let minSunDur = Math.trunc((dur - 36000) / 60);
+    return `${sunDay}:${minSunDur}`;
+  }
+  durationElement.innerHTML = showDuration();
   getForecast(response.data.coord);
 }
 
