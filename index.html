@@ -38,14 +38,14 @@
                 <input
                   type="submit"
                   value="Search"
-                  class="btn btn-primary w-100"
+                  class="btn btn-success w-100"
                 />
               </div>
             </div>
           </form>
           <div class="row">
-            <div class="col-3">
-              <div class="overview">
+            <div class="col-4">
+              <div class="align-self-start">
                 <h1 id="city">Kyiv</h1>
                 <ul>
                   <li id="date">8 august</li>
@@ -54,14 +54,14 @@
                 </ul>
               </div>
             </div>
-            <div class="col-3">
+            <div class="col-4 align-self-center">
               <div class="clearfix weather-temperature">
-                <strong id="temp">23</strong><span id="units">°C</span>
+                <strong id="temp">23</strong><span class="units">°C</span>
               </div>
             </div>
-            <div class="col-3">
-              <img src="" alt="Clear" class="float-left" id="icon" />
-              <div id="description"></div>
+            <div class="col-4 align-self-center">
+              <img src="" alt="Clear" class="" id="icon" />
+              <div class="overview" id="description"></div>
             </div>
           </div>
           <div class="humidity">Humidity: <span id="humid"></span> %</div>
@@ -69,16 +69,14 @@
           <div class="row">
             <div class="col-6">
               <div class="sun">
-                sunrise 5:35
+                Sunrise <span id="rise">5:35</span>
                 <br />
-                sunset 20:31
+                Sunset <span id="set">20:31</span>
               </div>
             </div>
             <div class="col-6">
               <div class="day-time">
-                Day's duration:
-                <br />
-                11
+                Day's duration: <span id="duration">11</span>
               </div>
             </div>
           </div>

@@ -87,6 +87,19 @@ function showCityValues(event) {
   let cityInput = document.querySelector("#city-input");
   search(cityInput.value);
 }
+function formatSun(timesun) {
+  let timeRise = new Date(timesun);
+  let hours = timeRise.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  let minutes = timeRise.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+  return `${hours}:${minutes}`;
+}
+
 function showTemperature(response) {
   console.log(response.data);
   let temperatureElement = document.querySelector("#temp");
@@ -97,6 +110,9 @@ function showTemperature(response) {
   let dateElement = document.querySelector("#date");
   let iconElement = document.querySelector("#icon");
   let timeElement = document.querySelector("#time");
+  let riseElement = document.querySelector("#rise");
+  let setElement = document.querySelector("#set");
+  let durationElement = document.querySelector("#duration");
   temperatureElement.innerHTML = Math.round(response.data.main.temp);
   cityElement.innerHTML = response.data.name;
   descriptionElement.innerHTML = response.data.weather[0].description;
@@ -109,7 +125,14 @@ function showTemperature(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
+  riseElement.innerHTML = formatSun(response.data.sys.sunrise * 1000);
+  setElement.innerHTML = formatSun(response.data.sys.sunset * 1000);
 
+  let dur = response.data.sys.sunset - response.data.sys.sunrise;
+  let sunDay = Math.trunc(dur / 3600);
+  let minSunDur = Math.trunc((dur - 36000) / 60);
+
+  durationElement.innerHTML = `${sunDay}:${minSunDur}`;
   getForecast(response.data.coord);
 }
 
